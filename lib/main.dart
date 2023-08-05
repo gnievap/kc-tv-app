@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kc_tv_app/screens/start_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -76,47 +77,35 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+    return MaterialApp(
+      title: 'KC Tv',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          scaffoldBackgroundColor: const Color(0x00000000),
+          primaryColor: Colors.redAccent,
+          appBarTheme: const AppBarTheme(
+            color:  Colors.red,
+          ),
+          textTheme:
+            const TextTheme(   //0x89baf3
+              headlineLarge: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontFamily: 'Tahoma'),
+              headlineSmall: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),   
+              bodyMedium: TextStyle(color: Color.fromARGB(255, 76, 169, 248), fontSize:12,  fontWeight: FontWeight.bold),
+              bodySmall: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+            backgroundColor: const Color.fromARGB(255, 68, 154, 243), // background (button) color
+            foregroundColor: Colors.white,
+            textStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
             ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),  
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.call),
-            label: 'Calls',
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.camera),
-            label: 'Camera',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat),
-            
-            label: 'Chats',
-          ),
-        ],
-      ),
+          useMaterial3: true),
+      home:  const StartScreen(),
     );
+    
+    
   }
 }
