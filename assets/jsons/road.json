@@ -1,0 +1,27 @@
+{
+    "h1": {
+        "url": "https://www.youtube.com/watch?v=dSN9kmztr7g&t=192s",
+        "title": "Super Bowl 57: Kansas City Chiefs vs Philadelphia Eagles",
+        "mini": "lib/assets/miniatures/sb57_kc_phi_120223.png",
+        "duration": "14:56",
+        "date": "12/02/2023",
+        "description": "Después de 50 años de haber obtenido su único Super Bowl, los Kansas City Chiefs se enfrentan a los 49ers de San Francisco, y a 6 minutos de terminar el partido, les arrebatan el triunfo para obtener su segundo Super Bowl"
+    },
+    "h2":{
+        "url": "https://www.youtube.com/watch?v=fq2R9OntPMc",
+        "title": "Campeonato de la Conferencia Americana: Kansas City Chiefs vs Cincinnati Bengals",
+        "mini": "lib/assets/miniatures/afc_champ_kc_cin_290123",
+        "duration": "16:41",
+        "date": "29/01/2023",
+        "description": "Resumen del Campeonato de la Conferencia Americana, el último paso para llegar al Super Bowl"
+    },
+    "h3":{
+        "url": "https://www.youtube.com/watch?v=OSWdYTibPSM&list=PLcfQmCtP_FdVKS4-EhDinj4-cC2SmZJbt&index=3",
+        "title": "Ronda Divisional de la Conferencia Americana: Kansas City Chiefs vs Jacksonville Jaguars",
+        "mini": "lib/assets/miniatures/afc_divisional_kc_jax_210123.png",
+        "duration": "14:28",
+        "date": "21/01/2023",
+        "description": "Resumen de la ronda divisional de la Conferencia Americana, los Chiefs inician su camino al Super Bowl enfrentando a los Jacksonville Jaguars"
+    }
+
+}

@@ -12,6 +12,12 @@ class _StartScreenState extends State<StartScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(2.0),
+          child: Image.asset(
+            "assets/images/kc_white_on_red.png",
+          ),
+        ),
         title: Text(
           'KC Tv',
           style: Theme.of(context).textTheme.headlineLarge,
@@ -30,23 +36,30 @@ class _StartScreenState extends State<StartScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.sports_football),
-            label: 'Full Games',
-            backgroundColor: Colors.red,
+            icon: Icon(
+              Icons.sports_football,
+              color: Colors.red,),
+            label: 'Juegos Completos',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.tv_outlined),
-            label: 'Analysys & Interviews',
-            color: Colors.red,
-            
+            icon: Icon(
+              Icons.add_road,
+              color: Colors.red,
+              ),
+            label: 'Camino al Super Bowl',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.video_camera_back),
+            icon: Icon(
+              Icons.video_camera_back,
+              color: Colors.red,
+            ),
             label: 'The Franchise',
-            backgroundColor: Colors.red,
           ),
         ],
         backgroundColor: Colors.amber,
+        unselectedItemColor: Colors.red,
+        unselectedLabelStyle: const TextStyle(color: Colors.red, fontSize: 14),
+        fixedColor: Colors.red,
         onTap: null,
       ),
     );

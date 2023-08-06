@@ -1,0 +1,26 @@
+{
+    "ep1": {
+        "url": "https://www.youtube.com/watch?v=F5vFf8hUnFw&list=PL-9iO2rIrpm6gcnD62QtGwq-SpQ5MzbDQ&index=14",
+        "title": "Episodio 1: Estableciendo el estándar",
+        "mini": "lib/assets/miniatures/the_franchise_e1.png", 
+        "duration": "25:10", 
+        "date": "04/08/2022",
+        "description": "Mientras los Kansas City Chiefs se preparan para la temporada 2022 de la NFL, regresan a Missouri Western State University en St. Joseph. Clark Hunt presenta la tradición ganadora del equipo a caras nuevas. Steve Spagnuolo y Joe Cullen trabajan con la joven defensa de los Chiefs para prepararse para el campo de entrenamiento y la temporada."
+    },
+    "ep2": {
+        "url": "https://www.youtube.com/watch?v=RlGxmEIzNH0&list=PL-9iO2rIrpm6gcnD62QtGwq-SpQ5MzbDQ&index=13",
+        "title": "Episodio 2: Viviendo el sueño",
+        "mini": "lib/assets/miniatures/the_franchise_e2.png",
+        "duration": "26:59",
+        "date": "18/08/2022",
+        "description": "Mientras los Kansas City Chiefs están trabajando duro en el Campo de Entrenamiento, el equipo de seguridad mantiene el ambiente alegre con 'Bob the Bobcat' en los dormitorios."
+    },
+    "ep3": {
+        "url": "https://www.youtube.com/watch?v=lpAhgy6KS58&list=PL-9iO2rIrpm6gcnD62QtGwq-SpQ5MzbDQ&index=12",
+        "title": "Episodio 3: Uno porciento mejor",
+        "mini": "lib/assets/miniatures/the_franchise_e3.png",
+        "duration": "32:30",
+        "date": "01/09/2022",
+        "description": "A medida que el campamento de entrenamiento de los Chiefs para 2022 llega a su fin, Brett Veach y el personal de la oficina principal se concentran en elegir la lista final de 53 jugadores."
+    }
+}
