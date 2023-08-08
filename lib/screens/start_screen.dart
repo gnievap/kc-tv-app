@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kc_tv_app/widgets/suggestion_card.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -13,7 +14,7 @@ class _StartScreenState extends State<StartScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
-          padding: const EdgeInsets.all(2.0),
+          padding: const EdgeInsets.all(1.0),
           child: Image.asset(
             "assets/images/kc_white_on_red.png",
           ),
@@ -30,6 +31,7 @@ class _StartScreenState extends State<StartScreen> {
              Text(
               'Carrusel de recomendaciones',
             ),
+            SuggestionCard(),
           ],
         ),
       ), 
