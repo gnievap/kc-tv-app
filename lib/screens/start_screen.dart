@@ -24,14 +24,17 @@ class _StartScreenState extends State<StartScreen> {
           style: Theme.of(context).textTheme.headlineLarge,
           ),
       ),
-      body: const Center(
+      body:  Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
              Text(
-              'Carrusel de recomendaciones',
+              'Recomendado para ti',
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
-            SuggestionCard(),
+            const SizedBox(height: 20,),
+            const SuggestionCard(),
           ],
         ),
       ), 

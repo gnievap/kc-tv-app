@@ -45,8 +45,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           textTheme:
             const TextTheme(   //0x89baf3
-              headlineLarge: TextStyle(color: Colors.white, fontSize:24, fontWeight: FontWeight.bold, fontFamily: 'Helvetica'),
-              headlineSmall: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),   
+              headlineLarge: TextStyle(color: Colors.white, fontSize:32, fontWeight: FontWeight.bold, fontFamily: 'Tahoma'),
+              headlineMedium: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),   
               bodyMedium: TextStyle(color: Colors.white, fontSize:14,  fontWeight: FontWeight.bold),
               bodySmall: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
             ),

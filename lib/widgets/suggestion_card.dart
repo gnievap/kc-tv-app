@@ -6,22 +6,20 @@ class SuggestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(30),
-          child: const Image(
-              image: AssetImage('assets/images/sb57_kc_phi_120223.png'),
-              height: 350.0,
-              width: 350.0,
-            ),
-        ),
+         ClipRRect(
+            borderRadius: BorderRadius.circular(40),
+            child: const Image(
+                image: AssetImage('assets/images/sb57_kc_phi_120223.png'),
+              ),
+          ),
         const SizedBox (width: 20.0,),
         Column(
           children: [
             SizedBox(
               width: 300,
-              height: 100,
+              height: 50,
               child: Text(
                 'Super Bowl LVII', 
                 style: Theme.of(context).textTheme.headlineLarge,
@@ -31,6 +29,22 @@ class SuggestionCard extends StatelessWidget {
               width: 300,
               height: 100,
               child: Text("Después de una desventaja de doble dígito, los Chiefs regresan para arrebatarle el triunfo a Philadelphia y obtener su tercer Lombardi",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    textAlign: TextAlign.justify,
+              ),
+            ),
+            SizedBox(
+              width: 300,
+              height: 50,
+              child: Text("Fecha: 12/02/2023",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                    textAlign: TextAlign.justify,
+              ),
+            ),
+                        SizedBox(
+              width: 300,
+              height: 50,
+              child: Text("Duración: 14:56",
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.justify,
               ),
