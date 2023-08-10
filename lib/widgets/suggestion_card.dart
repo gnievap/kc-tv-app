@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kc_tv_app/screens/player_screen.dart';
 
 class SuggestionCard extends StatelessWidget {
   const SuggestionCard({Key? key}) : super(key: key);
@@ -11,7 +12,11 @@ class SuggestionCard extends StatelessWidget {
          ClipRRect(
             borderRadius: BorderRadius.circular(40),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                 builder: (context) => PlayerScreen(
+                                                        url: 'https://www.youtube.com/watch?v=jQ1l5zenaKY'))); 
               child: const Image(
                   image: AssetImage('assets/images/sb57_kc_phi_120223.png'),
                 ),
