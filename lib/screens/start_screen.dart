@@ -1,4 +1,9 @@
+
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:kc_tv_app/widgets/suggestion_card.dart';
 
 class StartScreen extends StatefulWidget {
@@ -9,8 +14,53 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
+
+  List _itemsGames = [];
+  List _itemsRoad = [];
+  List _itemsFranchise = [];
+  int _index = 0;
+
+  // Fetch content from the json file
+  Future<void> readGames() async {
+     final String response = await rootBundle.loadString('assets/jsons/games.json');
+     final data = await json.decode(response);
+     setState(() {
+       _itemsGames = data["games"];
+       print('Número de games in setState: ${_itemsGames.length}');
+     });
+   }
+
+   Future<void> readRoad() async {
+     final String response = await rootBundle.loadString('assets/jsons/road.json');
+     final data = await json.decode(response);
+     setState(() {
+       _itemsRoad = data["items"];
+     });
+   }
+
+   Future<void> readFranchise() async {
+     final String response = await rootBundle.loadString('assets/jsons/fran.json');
+     final data = await json.decode(response);
+     setState(() {
+       _itemsFranchise = data["episodes"];
+     });
+   }
+  @override
+  void initState() {
+    super.initState();
+    // Call the readJson method when the app starts
+    readGames();
+    // readRoad();
+    // readFranchise();
+    Random random = Random();
+    _index = random.nextInt(2)+1;
+    print('Index: $_index');
+    //print('Número de games: ${_itemsGames.length}');
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
