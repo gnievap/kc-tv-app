@@ -24,7 +24,6 @@ class _PlayerScreenState extends State<PlayerScreen> {
   void initState() {
     super.initState();
     videoId = YoutubePlayer.convertUrlToId(widget.url).toString();
-    print(videoId);
     _controller = YoutubePlayerController(
         initialVideoId: videoId,
         flags: const YoutubePlayerFlags(
@@ -69,7 +68,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
       player: YoutubePlayer(
           controller: _controller,
           showVideoProgressIndicator: true,
-          progressIndicatorColor: Colors.blueAccent,
+          progressIndicatorColor: Colors.red,
           topActions: <Widget>[
             const SizedBox(width: 8.0),
             Expanded(
@@ -84,10 +83,34 @@ class _PlayerScreenState extends State<PlayerScreen> {
           onReady: () {
             _isPlayerReady = true;
           },
-          onEnded: (data) {}),
+          onEnded: (data) {
+            _showSnackBar('Next Video Started!');
+          }),
       builder: (context, player) => Scaffold(
         body: player,
       ),
     );
   }
+
+  void _showSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontWeight: FontWeight.w300,
+            fontSize: 16.0,
+          ),
+        ),
+        backgroundColor: Colors.blueAccent,
+        behavior: SnackBarBehavior.floating,
+        elevation: 1.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(50.0),
+        ),
+      ),
+    );
+  }
 }
+

@@ -12,11 +12,12 @@ class SuggestionCard extends StatelessWidget {
          ClipRRect(
             borderRadius: BorderRadius.circular(40),
             child: GestureDetector(
-              onTap: () => Navigator.push(
+              onTap: () { Navigator.push(
                               context,
                               MaterialPageRoute(
-                                 builder: (context) => PlayerScreen(
-                                                        url: 'https://www.youtube.com/watch?v=jQ1l5zenaKY'))); 
+                                 builder: (context) => const PlayerScreen(
+                                                        url: 'https://www.youtube.com/watch?v=dSN9kmztr7g&t=192s'))); 
+              },
               child: const Image(
                   image: AssetImage('assets/images/sb57_kc_phi_120223.png'),
                 ),
