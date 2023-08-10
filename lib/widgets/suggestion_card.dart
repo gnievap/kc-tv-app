@@ -10,9 +10,12 @@ class SuggestionCard extends StatelessWidget {
       children: [
          ClipRRect(
             borderRadius: BorderRadius.circular(40),
-            child: const Image(
-                image: AssetImage('assets/images/sb57_kc_phi_120223.png'),
-              ),
+            child: GestureDetector(
+              onTap: () {},
+              child: const Image(
+                  image: AssetImage('assets/images/sb57_kc_phi_120223.png'),
+                ),
+            ),
           ),
         const SizedBox (width: 20.0,),
         Column(
