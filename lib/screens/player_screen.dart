@@ -84,7 +84,8 @@ class _PlayerScreenState extends State<PlayerScreen> {
             _isPlayerReady = true;
           },
           onEnded: (data) {
-            _showSnackBar('Next Video Started!');
+            Navigator.pop(context);
+            //_showSnackBar('Next Video Started!');
           }),
       builder: (context, player) => Scaffold(
         body: player,
