@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kc_tv_app/widgets/suggestion_card.dart';
 
+import '../model/item.dart';
+
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
 
@@ -15,7 +17,7 @@ class StartScreen extends StatefulWidget {
 
 class _StartScreenState extends State<StartScreen> {
 
-  List _itemsGames = [];
+  List<Item> _itemsGames = [];
   List _itemsRoad = [];
   List _itemsFranchise = [];
   int _index = 0;
@@ -24,9 +26,12 @@ class _StartScreenState extends State<StartScreen> {
   Future<void> readGames() async {
      final String response = await rootBundle.loadString('assets/jsons/games.json');
      final data = await json.decode(response);
+     //_itemsGames = new Item.fromJsonMap(data['games']);
      setState(() {
-       _itemsGames = data["games"];
-       print('Número de games in setState: ${_itemsGames.length}');
+      // _itemsGames = data["games"];
+
+
+       //print('Número de games in setState: ${_itemsGames.length}');
      });
    }
 
