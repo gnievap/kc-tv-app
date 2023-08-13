@@ -20,11 +20,9 @@ class Item{
      url        = json['url'];
      title      = json['title'];
      mini       = json['mini'];
-     duration   = json['duration']/1;
+     duration   = json['duration'];
      date       = json['date'];
-     description = json['description'] / 1;
+     description = json['description'];
   }
-
-  
 
 }
