@@ -26,11 +26,11 @@ class _SuggestionCardState extends State<SuggestionCard> {
               onTap: () { Navigator.push(
                               context,
                               MaterialPageRoute(
-                                 builder: (context) => const PlayerScreen(
-                                                        url: 'https://www.youtube.com/watch?v=dSN9kmztr7g&t=192s'))); 
+                                 builder: (context) => PlayerScreen(url: widget.item.url.toString())));
+                                                        //url: 'https://www.youtube.com/watch?v=dSN9kmztr7g&t=192s'))); 
               },
-              child: const Image(
-                  image: AssetImage('assets/images/sb57_kc_phi_120223.png'),
+              child:  Image(
+                  image: AssetImage(widget.item.mini.toString() ),//'assets/images/sb57_kc_phi_120223.png'),
                 ),
             ),
           ),
@@ -41,14 +41,17 @@ class _SuggestionCardState extends State<SuggestionCard> {
               width: 300,
               height: 50,
               child: Text(
-                'Super Bowl LVII', 
+                widget.item.title.toString(),
+                //'Super Bowl LVII', 
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
             ),
             SizedBox(
               width: 300,
               height: 100,
-              child: Text("Después de una desventaja de doble dígito, los Chiefs regresan para arrebatarle el triunfo a Philadelphia y obtener su tercer Lombardi",
+              child: Text(
+                    widget.item.title.toString(),
+                //"Después de una desventaja de doble dígito, los Chiefs regresan para arrebatarle el triunfo a Philadelphia y obtener su tercer Lombardi",
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.justify,
               ),
@@ -56,15 +59,15 @@ class _SuggestionCardState extends State<SuggestionCard> {
             SizedBox(
               width: 300,
               height: 50,
-              child: Text("Fecha: 12/02/2023",
+              child: Text('Fecha:  ${widget.item.date.toString()}',// 12/02/2023",
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.justify,
               ),
             ),
-                        SizedBox(
+            SizedBox(
               width: 300,
               height: 50,
-              child: Text("Duración: 14:56",
+              child: Text('Duración: ${widget.item.duration.toString()}',//14:56",
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.justify,
               ),

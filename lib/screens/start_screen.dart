@@ -51,7 +51,6 @@ class _StartScreenState extends State<StartScreen> {
   @override
   void initState() {
     super.initState();
-    // Call the readJson method when the app starts
   
     // Getting a random index of the items for the recommendations
     Random random = Random();
