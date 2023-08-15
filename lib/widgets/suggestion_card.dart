@@ -20,54 +20,56 @@ class _SuggestionCardState extends State<SuggestionCard> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-         ClipRRect(
-            borderRadius: BorderRadius.circular(40),
-            child: GestureDetector(
-              onTap: () { Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                 builder: (context) => PlayerScreen(url: widget.item.url.toString())));
-                                                        //url: 'https://www.youtube.com/watch?v=dSN9kmztr7g&t=192s'))); 
-              },
-              child:  Image(
-                  image: AssetImage(widget.item.mini.toString() ),//'assets/images/sb57_kc_phi_120223.png'),
+         SizedBox(
+           width: 550,
+           height: 350,
+           child: ClipRRect(
+              borderRadius: BorderRadius.circular(40),
+              child: GestureDetector(
+                onTap: () { 
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PlayerScreen(url: widget.item.url.toString())));
+                },
+                child: Image(
+                      image: AssetImage(widget.item.mini.toString() ),
+                    ),
                 ),
-            ),
-          ),
+              ),
+         ),
         const SizedBox (width: 20.0,),
         Column(
           children: [
             SizedBox(
               width: 300,
-              height: 50,
+              height: 150,
               child: Text(
                 widget.item.title.toString(),
-                //'Super Bowl LVII', 
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
             ),
             SizedBox(
-              width: 300,
-              height: 100,
+              width: 305,
+              height: 120,
               child: Text(
-                    widget.item.title.toString(),
-                //"Después de una desventaja de doble dígito, los Chiefs regresan para arrebatarle el triunfo a Philadelphia y obtener su tercer Lombardi",
+                    widget.item.description.toString(),
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.justify,
               ),
             ),
             SizedBox(
               width: 300,
-              height: 50,
-              child: Text('Fecha:  ${widget.item.date.toString()}',// 12/02/2023",
+              height: 40,
+              child: Text('Fecha:  ${widget.item.date.toString()}',
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.justify,
               ),
             ),
             SizedBox(
               width: 300,
-              height: 50,
-              child: Text('Duración: ${widget.item.duration.toString()}',//14:56",
+              height: 40,
+              child: Text('Duración: ${widget.item.duration.toString()}',
                     style: Theme.of(context).textTheme.bodyMedium,
                     textAlign: TextAlign.justify,
               ),

@@ -25,16 +25,16 @@ class _StartScreenState extends State<StartScreen> {
   // Fetch content from the json file
   Future<void> readJson(String fileName, String key, Function callback) async {
     try {
-      print('Reading $fileName.json');
+      //print('Reading $fileName.json');
       final String response = await rootBundle.loadString('assets/jsons/$fileName.json');
       final data = await json.decode(response);
       //print('Data from $fileName.json: $data');
-      print('Data from $fileName.json has ${data[key].length} items');
+      //print('Data from $fileName.json has ${data[key].length} items');
       callback(data[key]);
       // setState(() {
       //   callback(data[key]);
       // });
-      print('Finished reading $fileName.json');
+      //print('Finished reading $fileName.json');
       if (data[key].isEmpty) {
             print('$key list is empty');
       } else if (!data[key][0].containsKey('title')) {
@@ -89,7 +89,7 @@ class _StartScreenState extends State<StartScreen> {
                       readJson('franchise', 'episodes', (data) => _itemsFranchise = Items.fromJsonList(data)),
                   ]).catchError((error) {
                       // Maneja el error aquí
-                      print(error);
+                      //print(error);
                       return [];
                   }),
                   builder: (context, snapshot) {
@@ -99,8 +99,8 @@ class _StartScreenState extends State<StartScreen> {
                         // Muestra un mensaje de error
                         return const Text('Ocurrió un error al cargar los datos'); 
                       } else {
-                          print(_itemsGames.items[1].title);
-                          return SuggestionCard(item: _itemsGames.items[1]);
+                          //print(_itemsGames.items[1].title);
+                          return SuggestionCard(item: _itemsGames.items[_index]);
                       }
                     } else {
                       return const CircularProgressIndicator();
