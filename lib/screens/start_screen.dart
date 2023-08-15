@@ -24,11 +24,28 @@ class _StartScreenState extends State<StartScreen> {
 
   // Fetch content from the json file
   Future<void> readJson(String fileName, String key, Function callback) async {
-  final String response = await rootBundle.loadString('assets/jsons/$fileName.json');
-  final data = await json.decode(response);
-  setState(() {
-    callback(data[key]);
-  });
+    try {
+      print('Reading $fileName.json');
+      final String response = await rootBundle.loadString('assets/jsons/$fileName.json');
+      final data = await json.decode(response);
+      //print('Data from $fileName.json: $data');
+      print('Data from $fileName.json has ${data[key].length} items');
+      callback(data[key]);
+      // setState(() {
+      //   callback(data[key]);
+      // });
+      print('Finished reading $fileName.json');
+      if (data[key].isEmpty) {
+            print('$key list is empty');
+      } else if (!data[key][0].containsKey('title')) {
+            print('First element in $key list does not have a title property');
+      } else {
+            // Access the title property here
+            print(data[key][0]['title']);
+      }
+     } catch (e) {
+    print('Error while reading $fileName.json: $e');
+  }
 }
 
   @override
@@ -71,11 +88,21 @@ class _StartScreenState extends State<StartScreen> {
                       readJson('games', 'games', (data) => _itemsGames = Items.fromJsonList(data)),
                       readJson('road', 'items', (data) => _itemsRoad = Items.fromJsonList(data)),
                       readJson('franchise', 'episodes', (data) => _itemsFranchise = Items.fromJsonList(data)),
-                  ]),
+                  ]).catchError((error) {
+                      // Maneja el error aquí
+                      print(error);
+                      return [];
+                  }),
                   builder: (context, snapshot) {
+                    
                     if (snapshot.connectionState == ConnectionState.done) {
-                      print(_itemsGames.items[0].title);
-                      return SuggestionCard(item: _itemsGames.items[0]);
+                      if (snapshot.hasError) {
+                        // Muestra un mensaje de error
+                        return const Text('Ocurrió un error al cargar los datos'); 
+                      } else {
+                          print(_itemsGames.items[1].title);
+                          return SuggestionCard(item: _itemsGames.items[1]);
+                      }
                     } else {
                       return const CircularProgressIndicator();
                     }

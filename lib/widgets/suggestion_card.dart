@@ -16,6 +16,7 @@ class _SuggestionCardState extends State<SuggestionCard> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
