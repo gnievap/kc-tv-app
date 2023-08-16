@@ -6,10 +6,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    //Items _items = Items();
     return MaterialApp(
       title: 'KC Tv',
       debugShowCheckedModeBanner: false,
@@ -37,6 +39,10 @@ class MyApp extends StatelessWidget {
           ),
           useMaterial3: true),
       home:  const StartScreen(),
+  //     routes: {
+  //         //'/': (context) => const StartScreen(), // Esta es la ruta inicial
+  //         'ListScreen': (context) => ListScreen( listItems: _items,), // Esta es la ruta que quieres usar
+  // },
     );
   }
 }

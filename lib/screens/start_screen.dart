@@ -5,6 +5,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:kc_tv_app/model/items.dart';
+import 'package:kc_tv_app/screens/list_screen.dart';
 import 'package:kc_tv_app/widgets/suggestion_card.dart';
 
 
@@ -20,7 +21,8 @@ class _StartScreenState extends State<StartScreen> {
   Items _itemsGames = Items();
   Items _itemsRoad = Items();
   Items _itemsFranchise = Items();
-  int _index = 0;
+  int _randomIndex = 0;
+  int _selectedIndex = 0;
 
   // Fetch content from the json file
   Future<void> readJson(String fileName, String key, Function callback) async {
@@ -54,11 +56,12 @@ class _StartScreenState extends State<StartScreen> {
   
     // Getting a random index of the items for the recommendations
     Random random = Random();
-    _index = random.nextInt(2)+1;
+    _randomIndex = random.nextInt(2)+1;
   }
 
   @override
   Widget build(BuildContext context) {
+  Items itemsSelected = Items();
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
@@ -100,7 +103,7 @@ class _StartScreenState extends State<StartScreen> {
                         return const Text('Ocurrió un error al cargar los datos'); 
                       } else {
                           //print(_itemsGames.items[1].title);
-                          return SuggestionCard(item: _itemsGames.items[_index]);
+                          return SuggestionCard(item: _itemsGames.items[_randomIndex]);
                       }
                     } else {
                       return const CircularProgressIndicator();
@@ -111,7 +114,8 @@ class _StartScreenState extends State<StartScreen> {
         ),
       ), 
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        currentIndex: _selectedIndex,
+        items:  const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
               Icons.sports_football,
@@ -137,7 +141,27 @@ class _StartScreenState extends State<StartScreen> {
         unselectedItemColor: Colors.red,
         unselectedLabelStyle: const TextStyle(color: Colors.red, fontSize: 14),
         fixedColor: Colors.red,
-        onTap: null,
+        onTap: (index) {
+          print('index: $index');
+          
+          if (index == 0) {
+            itemsSelected = _itemsGames;
+          } else if (index == 1) {
+            itemsSelected = _itemsRoad;
+          } else if (index == 2) {
+            itemsSelected = _itemsFranchise;
+          }
+          setState(() {
+            _selectedIndex = index;
+            itemsSelected = itemsSelected;
+        });
+        print('SelectedIndex: $_selectedIndex');
+        Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ListScreen(listItems: itemsSelected)));
+          //Navigator.of(context).pushNamed('ListScreen', arguments: itemsSelected);
+        },
       ),
     );
   }
