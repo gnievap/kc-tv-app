@@ -29,10 +29,11 @@ class _ListScreenState extends State<ListScreen> {
           style: Theme.of(context).textTheme.headlineLarge,
           ),
       ),
-      body: ListView(
-        children:  [
-          MiniCard(item: widget.listItems.items[0]),
-        ],
+      body: ListView.builder(
+        itemCount: widget.listItems.items.length,
+        itemBuilder: (BuildContext context, int index) {
+          return MiniCard(item: widget.listItems.items[index]);
+        }
       ),
     );
   }
