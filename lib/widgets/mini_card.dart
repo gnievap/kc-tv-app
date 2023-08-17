@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kc_tv_app/model/item.dart';
+import 'package:kc_tv_app/screens/player_screen.dart';
 
 class MiniCard extends StatefulWidget {
 
@@ -32,9 +33,21 @@ class _MiniCardState extends State<MiniCard> {
   }
 
   Widget _cardImage(){
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(15),
-      child: Image.asset(widget.item.mini.toString())
+    return SizedBox(
+      width: 250,
+      height: 200,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: GestureDetector(
+          onTap: () { 
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => PlayerScreen(url: widget.item.url.toString())));
+                },
+          child: Image.asset(widget.item.mini.toString()),
+        ),
+      ),
     );
   }
 
@@ -43,9 +56,13 @@ class _MiniCardState extends State<MiniCard> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-            Text(
-                  widget.item.title.toString(),
-                  style: Theme.of(context).textTheme.headlineMedium,
+            SizedBox(
+              width: 450,
+              height: 50,
+              child: Text(
+                    widget.item.title.toString(),
+                    style: Theme.of(context).textTheme.headlineMedium,
+              ),
             ),
             const SizedBox(height: 20,),
             Text(

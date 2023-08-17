@@ -28,6 +28,18 @@ class _ListScreenState extends State<ListScreen> {
           'KC Tv',
           style: Theme.of(context).textTheme.headlineLarge,
           ),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Text(
+              'Cancel',
+              style: Theme.of(context).textTheme.bodyMedium,
+              textAlign: TextAlign.left,
+            ),
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: widget.listItems.items.length,
