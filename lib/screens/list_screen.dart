@@ -33,11 +33,18 @@ class _ListScreenState extends State<ListScreen> {
             onTap: () {
               Navigator.pop(context);
             },
-            child: Text(
-              'Cancel',
-              style: Theme.of(context).textTheme.bodyMedium,
-              textAlign: TextAlign.left,
-            ),
+            child: 
+               IconButton(
+                icon: const Icon(
+                  Icons.home_rounded,
+                  color: Colors.white,
+                  size: 32,
+                ),
+                tooltip: 'Regresar al inicio', 
+                onPressed: () {  
+                  Navigator.pop(context);
+                },  
+              ),
           ),
         ],
       ),

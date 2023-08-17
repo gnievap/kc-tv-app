@@ -142,7 +142,7 @@ class _StartScreenState extends State<StartScreen> {
         unselectedLabelStyle: const TextStyle(color: Colors.red, fontSize: 14),
         fixedColor: Colors.red,
         onTap: (index) {
-          print('index: $index');
+          //print('index: $index');
           
           if (index == 0) {
             itemsSelected = _itemsGames;
@@ -155,7 +155,7 @@ class _StartScreenState extends State<StartScreen> {
             _selectedIndex = index;
             itemsSelected = itemsSelected;
         });
-        print('SelectedIndex: $_selectedIndex');
+        //print('SelectedIndex: $_selectedIndex');
         Navigator.push(
                       context,
                       MaterialPageRoute(
